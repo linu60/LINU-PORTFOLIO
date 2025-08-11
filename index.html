@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linu Uprasi - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind dark mode class strategy
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+
+  <!-- Google Fonts for professional clean look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Gradient overlay background for depth */
+    .overlay {
+      background: linear-gradient(rgba(208, 180, 180, 0.85), rgba(255, 255, 255, 0.85));
+      backdrop-filter: saturate(180%) blur(10px);
+      transition: background-color 0.5s ease;
+    }
+    .dark .overlay {
+      background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(24, 30, 54, 0.85));
+    }
+    /* Consistent max width and padding for content */
+    .content-container {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    /* Body font family */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: background-color 0.5s, color 0.5s;
+    }
+    /* Hover glow */
+    .hover-glow:hover {
+      box-shadow: 0 0 15px rgba(1, 19, 48, 0.6);
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+    /* Underline hover effect */
+    .hover-underline {
+      position: relative;
+    }
+    .hover-underline::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -3px;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+    .hover-underline:hover::after {
+      width: 100%;
+    }
+    /* Remove underline but keep pointer */
+    a.no-underline {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    /* Text selection highlight globally */
+    ::selection {
+      background-color: #ae911d; /* Tailwind yellow-300 */
+      color: #000; /* Black text on yellow background */
+    }
+    /* Bounce arrow animation */
+    @keyframes bounceArrow {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(6px);
+      }
+    }
+    .animate-bounceArrow {
+      animation: bounceArrow 1.5s ease-in-out infinite;
+      display: inline-block;
+    }
+    /* Skill card styling using Tailwind @apply */
+    .skill-card {
+      @apply w-full px-4 py-3 bg-white/90 dark:bg-gray-700 rounded-md shadow-md text-center text-gray-800 dark:text-gray-100 cursor-pointer transition-all duration-300 ease-in-out;
+    }
+    .skill-card:hover {
+      @apply shadow-xl scale-105 bg-white dark:bg-gray-600;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-in-out forwards;
+    }
+    .animate-slideUp {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    /* Hover glow alternate */
+    .hover-glow {
+      transition: all 0.3s ease;
+    }
+    .hover-glow:hover {
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
+      transform: translateY(-3px);
+    }
+    /* Focus styles for accessibility */
+    a:focus, button:focus {
+      outline: 2px solid #2563eb; /* Tailwind blue-600 */
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="text-gray-800 dark:text-gray-200 font-sans leading-relaxed">
+
+  <!-- Theme Toggle Button -->
+  <div class="fixed top-5 right-5 z-50">
+    <button id="theme-toggle" aria-label="Toggle Dark Mode" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 dark:bg-yellow-400 dark:text-black dark:hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 transition">
+      🌙
+    </button>
+  </div>
+
+  <div class="overlay min-h-screen">
+
+    <!-- Intro Section -->
+    <section class="content-container py-16 text-left">
+      <h2 class="text-4xl font-bold mb-6">Hello! 👋</h2>
+      <p class="text-xl leading-relaxed text-gray-800 dark:text-gray-200 max-w-[600px] text-justify">
+        I’m <span class="font-bold">Linu Uprasi</span>, a dedicated and innovative 
+        <span class="font-semibold text-blue-600 dark:text-blue-400">Full Stack Developer</span> at 
+        <span class="font-semibold">8Queens Software Technologies</span>.  
+        With a strong commitment to excellence, I architect and deliver robust, scalable web applications, seamless APIs, 
+        and highly responsive, user-centric interfaces that drive impactful digital experiences.
+      </p>
+    </section>
+
+    <!-- Background Section -->
+    <section 
+      class="content-container py-12 text-left transition-transform duration-300 hover:scale-[1.02]"
+      data-aos="fade-up"
+    >
+      <h2 class="text-3xl font-extrabold mb-6 text-gray-900 dark:text-gray-100 transition-colors duration-300 hover:text-blue-600 dark:hover:text-blue-400 cursor-default">
+        Background
+      </h2>
+      <p class="text-xl leading-relaxed text-gray-800 dark:text-gray-200 max-w-[600px] text-justify">
+        With a degree in Computer Science and Engineering from K.RAMAKRISHNAN COLLEGE OF TECHNOLOGY, I possess a strong foundation in designing and implementing efficient, scalable, and maintainable systems. In my role as a Full Stack Developer, I expertly bridge backend logic with intuitive, high-performance front-end interfaces to deliver seamless user experiences.
+      </p><br>
+      <p class="text-xl leading-relaxed text-gray-800 dark:text-gray-200 max-w-[600px] text-justify">
+        Beyond work, I continuously explore emerging technologies and modern frameworks, building innovative side projects that challenge my creativity and sharpen my skills across both frontend and backend development.
+      </p>
+    </section>
+
+    <!-- Add AOS Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true, // animation only once when scrolled into view
+      });
+    </script>
+
+    <!-- Skills Section -->
+    <section class="content-container py-12 text-left animate-fadeIn">
+      <h2 class="text-3xl font-extrabold mb-6 text-gray-900 dark:text-gray-100">Skills</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Languages -->
+        <div class="animate-slideUp delay-100">
+          <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b border-gray-300 dark:border-gray-600 pb-2">
+            Languages
+          </h3>
+          <ul class="mt-4 space-y-3">
+            <li class="skill-card">Java</li>
+            <li class="skill-card">PHP</li>
+            <li class="skill-card">JavaScript</li>
+            <li class="skill-card">HTML5</li>
+            <li class="skill-card">CSS3</li>
+          </ul>
+        </div>
+
+        <!-- Frameworks & Libraries -->
+        <div class="animate-slideUp delay-200">
+          <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b border-gray-300 dark:border-gray-600 pb-2">
+            Frameworks & Libraries
+          </h3>
+          <ul class="mt-4 space-y-3">
+            <li class="skill-card">jQuery</li>
+            <li class="skill-card">Laravel</li>
+            <li class="skill-card">Vanilla JS</li>
+            <li class="skill-card">Tailwind CSS</li>
+            <li class="skill-card">Bootstrap</li>
+          </ul>
+        </div>
+
+        <!-- Tools & Databases -->
+        <div class="animate-slideUp delay-300">
+          <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b border-gray-300 dark:border-gray-600 pb-2">
+            Tools & Databases
+          </h3>
+          <ul class="mt-4 space-y-3">
+            <li class="skill-card">MySQL</li>
+            <li class="skill-card">MongoDB</li>
+            <li class="skill-card">Git & GitHub</li>
+            <li class="skill-card">XAMPP</li>
+            <li class="skill-card">VS Code</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-12 max-w-3xl mx-auto px-4 text-gray-900 dark:text-gray-100 right-4">
+      <h2 class="text-3xl font-extrabold mb-10 text-center">Projects</h2>
+      <ul class="space-y-8 text-center">
+
+        <li class="relative p-6 bg-transparent dark:bg-transparent rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border-l-4 border-gray-900">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-200">SkillSwap – Peer-to-Peer Learning Platform</h3>
+          <p class="mb-4 leading-relaxed text-gray-800 dark:text-gray-300">
+            A responsive web app where users can offer, learn, and book skills from each other.<br />
+            Features include user registration, skill listing, browsing, and bookings.<br />
+            Built with HTML, CSS, JavaScript, PHP, and MySQL for a smooth user experience.<br />
+            Encourages community-driven learning without monetary exchange.
+          </p>
+          <a href="https://skillswapping.great-site.net" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-2 bg-gray-900 text-white rounded-md font-medium hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition">
+            Explore
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </li>
+
+        <li class="relative p-6 bg-transparent dark:bg-transparent rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border-l-4 border-gray-900">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-200">Sammy’s MindChirps – A Curious Journey Through Thoughts & Insights</h3>
+          <p class="mb-4 text-gray-800 dark:text-gray-300">
+            A thoughtfully curated personal blog exploring book and movie reviews, intriguing facts, eloquent excerpts, and heartfelt reflections.<br />
+            Designed to inspire curiosity and mindful living through engaging content and clean, intuitive navigation.<br />
+            Emphasizes learning, reflection, and finding beauty in everyday moments.<br />
+            Built with modern web technologies for a smooth and responsive reading experience.
+          </p>
+          <a href="https://www.mindchirps.com/" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-2 bg-gray-900 text-white rounded-md font-medium hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition">
+            Explore
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </li>
+
+        <li class="relative p-6 bg-transparent dark:bg-transparent rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border-l-4 border-gray-900">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-200">Student Registration Form – PHP & MySQL</h3>
+          <p class="mb-4 leading-relaxed text-gray-800 dark:text-gray-300">
+            A dynamic web application for registering students and storing their details securely.<br />
+            Features include form validation, data submission, and storage in a MySQL database.<br />
+            Built using PHP, MySQL, HTML, and Tailwind CSS for a clean and responsive interface.<br />
+            Designed for efficient data management in academic institutions.
+          </p>
+          <a href="https://github.com/linu60/student-registration-form-" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-2 bg-gray-900 text-white rounded-md font-medium hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition">
+            Explore
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-container py-12 text-left text-gray-900 dark:text-gray-100">
+
+      <!-- Get in touch Section -->
+ <!-- Contact Section -->
+<section class="content-container py-12 text-left text-gray-900 dark:text-gray-100">
+
+ <!-- Get in touch Section -->
+<section class="max-w-3xl mx-auto px-10 py-3 text-left">
+  <h3 class="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+    Get in Touch 
+  </h3>
+  
+  <!-- Down Arrow -->
+  <div class="text-3xl text-gray-600 dark:text-gray-400 text-center mb-6 animate-bounceArrow">
+    ⬇️
+  </div>
+
+  <ul class="space-y-2 max-w-[600px]">
+    <li>
+      <strong>LinkedIn:</strong> 
+      <a href="https://www.linkedin.com/in/linu-uprasi-a-758aa2251" target="_blank" rel="noopener noreferrer"
+         class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 no-underline font-medium">
+        www.linkedin.com/in/linu-uprasi-a-758aa2251
+      </a>
+    </li>
+    <li>
+      <strong>GitHub:</strong> 
+      <a href="https://github.com/linu-uprasi" target="_blank" rel="noopener noreferrer"
+         class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 no-underline font-medium">
+        https://github.com/linu60
+      </a>
+    </li>
+    <li>
+      <strong>Email:</strong> 
+      <a href="mailto:linuuprasi@gmail.com" 
+         class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-600 no-underline">
+        linuuprasi@gmail.com
+      </a>
+    </li>
+  </ul>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="text-center py-6 border-t text-sm text-gray-500 dark:text-gray-400">
+      &copy; 2025 Linu Uprasi. All rights reserved.
+    </footer>
+
+  </div>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        toggleBtn.textContent = '☀️';
+      } else {
+        toggleBtn.textContent = '🌙';
+      }
+    });
+  </script>
+
+</body>
+</html>
