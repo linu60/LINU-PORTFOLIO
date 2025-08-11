@@ -2,25 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Linu Uprasi - Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind dark mode class strategy
     tailwind.config = {
-      darkMode: 'class'
-    }
+      darkMode: 'class',
+    };
   </script>
 
-  <!-- Google Fonts for professional clean look -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Smooth scrolling */
+    /* Use Montserrat for whole page */
+    body {
+      font-family: 'Montserrat', sans-serif !important;
+      background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
     html {
       scroll-behavior: smooth;
     }
-    /* Gradient overlay background for depth */
+
     .overlay {
       background: linear-gradient(rgba(208, 180, 180, 0.85), rgba(255, 255, 255, 0.85));
       backdrop-filter: saturate(180%) blur(10px);
@@ -29,7 +39,7 @@
     .dark .overlay {
       background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(24, 30, 54, 0.85));
     }
-    /* Consistent max width and padding for content */
+
     .content-container {
       max-width: 720px;
       margin-left: auto;
@@ -37,22 +47,14 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
-    /* Body font family */
-    body {
-      font-family: 'Inter', sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      transition: background-color 0.5s, color 0.5s;
-    }
+
     /* Hover glow */
     .hover-glow:hover {
       box-shadow: 0 0 15px rgba(1, 19, 48, 0.6);
       transform: scale(1.05);
       transition: all 0.3s ease;
     }
-    /* Underline hover effect */
+
     .hover-underline {
       position: relative;
     }
@@ -69,17 +71,17 @@
     .hover-underline:hover::after {
       width: 100%;
     }
-    /* Remove underline but keep pointer */
+
     a.no-underline {
       text-decoration: none;
       cursor: pointer;
     }
-    /* Text selection highlight globally */
+
     ::selection {
-      background-color: #ae911d; /* Tailwind yellow-300 */
-      color: #000; /* Black text on yellow background */
+      background-color: #ae911d;
+      color: #000;
     }
-    /* Bounce arrow animation */
+
     @keyframes bounceArrow {
       0%, 100% {
         transform: translateX(0);
@@ -92,14 +94,14 @@
       animation: bounceArrow 1.5s ease-in-out infinite;
       display: inline-block;
     }
-    /* Skill card styling using Tailwind @apply */
+
     .skill-card {
       @apply w-full px-4 py-3 bg-white/90 dark:bg-gray-700 rounded-md shadow-md text-center text-gray-800 dark:text-gray-100 cursor-pointer transition-all duration-300 ease-in-out;
     }
     .skill-card:hover {
       @apply shadow-xl scale-105 bg-white dark:bg-gray-600;
     }
-    /* Animations */
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -117,7 +119,7 @@
     .delay-100 { animation-delay: 0.1s; }
     .delay-200 { animation-delay: 0.2s; }
     .delay-300 { animation-delay: 0.3s; }
-    /* Hover glow alternate */
+
     .hover-glow {
       transition: all 0.3s ease;
     }
@@ -125,15 +127,15 @@
       box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
       transform: translateY(-3px);
     }
-    /* Focus styles for accessibility */
+
     a:focus, button:focus {
-      outline: 2px solid #2563eb; /* Tailwind blue-600 */
+      outline: 2px solid #2563eb;
       outline-offset: 2px;
       border-radius: 4px;
     }
   </style>
 </head>
-<body class="text-gray-800 dark:text-gray-200 font-sans leading-relaxed">
+<body class="text-gray-800 dark:text-gray-200 leading-relaxed">
 
   <!-- Theme Toggle Button -->
   <div class="fixed top-5 right-5 z-50">
@@ -172,14 +174,14 @@
       </p>
     </section>
 
-    <!-- Add AOS Library -->
+    <!-- AOS Library -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({
         duration: 1000,
         easing: 'ease-in-out',
-        once: true, // animation only once when scrolled into view
+        once: true,
       });
     </script>
 
@@ -293,47 +295,42 @@
     <!-- Contact Section -->
     <section class="content-container py-12 text-left text-gray-900 dark:text-gray-100">
 
-      <!-- Get in touch Section -->
- <!-- Contact Section -->
-<section class="content-container py-12 text-left text-gray-900 dark:text-gray-100">
+      <section class="max-w-3xl mx-auto px-10 py-3 text-left">
+        <h3 class="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+          Get in Touch
+        </h3>
+        
+        <!-- Down Arrow -->
+        <div class="text-3xl text-gray-600 dark:text-gray-400 text-center mb-6 animate-bounceArrow">
+          ⬇️
+        </div>
 
- <!-- Get in touch Section -->
-<section class="max-w-3xl mx-auto px-10 py-3 text-left">
-  <h3 class="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
-    Get in Touch 
-  </h3>
-  
-  <!-- Down Arrow -->
-  <div class="text-3xl text-gray-600 dark:text-gray-400 text-center mb-6 animate-bounceArrow">
-    ⬇️
-  </div>
+        <ul class="space-y-2 max-w-[600px] mx-auto">
+          <li>
+            <strong>LinkedIn:</strong> 
+            <a href="https://www.linkedin.com/in/linu-uprasi-a-758aa2251" target="_blank" rel="noopener noreferrer"
+               class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 no-underline font-medium">
+              www.linkedin.com/in/linu-uprasi-a-758aa2251
+            </a>
+          </li>
+          <li>
+            <strong>GitHub:</strong> 
+            <a href="https://github.com/linu-uprasi" target="_blank" rel="noopener noreferrer"
+               class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 no-underline font-medium">
+              https://github.com/linu-uprasi
+            </a>
+          </li>
+          <li>
+            <strong>Email:</strong> 
+            <a href="mailto:linuuprasi@gmail.com" 
+               class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-600 no-underline">
+              linuuprasi@gmail.com
+            </a>
+          </li>
+        </ul>
+      </section>
 
-  <ul class="space-y-2 max-w-[600px]">
-    <li>
-      <strong>LinkedIn:</strong> 
-      <a href="https://www.linkedin.com/in/linu-uprasi-a-758aa2251" target="_blank" rel="noopener noreferrer"
-         class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 no-underline font-medium">
-        www.linkedin.com/in/linu-uprasi-a-758aa2251
-      </a>
-    </li>
-    <li>
-      <strong>GitHub:</strong> 
-      <a href="https://github.com/linu-uprasi" target="_blank" rel="noopener noreferrer"
-         class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 no-underline font-medium">
-        https://github.com/linu60
-      </a>
-    </li>
-    <li>
-      <strong>Email:</strong> 
-      <a href="mailto:linuuprasi@gmail.com" 
-         class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-600 no-underline">
-        linuuprasi@gmail.com
-      </a>
-    </li>
-  </ul>
-</section>
-
-
+    </section>
 
     <!-- Footer -->
     <footer class="text-center py-6 border-t text-sm text-gray-500 dark:text-gray-400">
@@ -342,7 +339,6 @@
 
   </div>
 
-  <!-- Theme Toggle Script -->
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
     toggleBtn.addEventListener('click', () => {
